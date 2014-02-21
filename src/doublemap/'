@@ -1,6 +1,4 @@
 import copy
-import datetime
-
 import requests
 
 
@@ -85,52 +83,11 @@ def main():
     # Fix for Python 2.x.
     try:
         input = raw_input
-    except NameError:
+    except NameError: 
         pass
-    print("Enter the DoubleMap route area (ex: iupui):")
-    tracker = DoubleMap(input('>> '))
 
-    print("Choose a starting point:")
-    start = select_location(tracker)
-
-    print("Choose a destination:")
-    finish = select_location(tracker)
-
-    route = find_route(tracker, start, finish) 
-
-    if route != -1:
-        bus_arrive_time = tracker.eta(start, route)
-        print("The bus will arrive in %s minute(s)." % bus_arrive_time)
-    else:
-        print("A single route cannot be taken.")
-
-def select_location(tracker):
-    """ Prompt the user for a location and return the stop_id. """
-    try:
-        input = raw_input
-    except NameError:
-        pass
-    for stop_id, stop in tracker.stops.iteritems():
-        print("%s. %s" % (stop_id, stop['name']))
-
-    return int(input('>> '))
-
-
-def find_route(tracker, start, finish):
-    """ Find which route the user should take. """
-    possible_routes = set()
-    for route_id, route in tracker.routes.iteritems():
-        if start in route['stops']:
-            possible_routes.add(route_id)
-        if finish in route['stops']:
-            possible_routes.add(route_id)
-
-    for route_id in list(possible_routes):
-        if start in tracker.routes[route_id]['stops'] and \
-                finish in tracker.routes[route_id]['stops']:
-            return route_id
-    else:
-        return -1
+    tracker = DoubleMap(input('Enter the bus route area (ex: iupui):'))
+    print(tracker.eta(stop_id=6, route_id=31))
 
 
 if __name__ == '__main__':
