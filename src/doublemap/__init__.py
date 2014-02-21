@@ -96,11 +96,13 @@ def main():
     print("Choose a destination:")
     finish = select_location(tracker)
 
-    route = find_route(tracker, start, finish) 
+    route = find_route(tracker, start, finish)
+    bus_name = tracker.routes[route]['name']
 
     if route != -1:
         bus_arrive_time = tracker.eta(start, route)
-        print("The bus will arrive in %s minute(s)." % bus_arrive_time)
+        print("The %s bus will arrive in %s minute(s)." % \
+                (bus_name, bus_arrive_time))
     else:
         print("A single route cannot be taken.")
 
