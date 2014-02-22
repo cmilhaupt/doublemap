@@ -31,3 +31,9 @@ Usage
 >>> tracker.route_info(23)
 ```
 
+
+Command Line Utility
+--------------------
+Included is a command line utility for accessing bus route information, which can be run after installing the package:
+
+    $ doublemap
