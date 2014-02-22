@@ -22,7 +22,7 @@ Via source code / GitHub:
 Usage
 -----
 ```python
->>> from doublmap import DoubleMap
+>>> from doublemap import DoubleMap
 >>> tracker = DoubleMap()
 >>>
 >>> # dict of buses. keys are bus ids.
