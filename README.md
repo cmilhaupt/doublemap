@@ -25,7 +25,7 @@ Usage
 >>> from doublmap import DoubleMap
 >>> tracker = DoubleMap()
 >>>
->>> # list all of the buses
+>>> # dict of buses. keys are bus ids.
 >>> tracker.buses
 >>> # retrieve info about route 23
 >>> tracker.route_info(23)
