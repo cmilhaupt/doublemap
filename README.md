@@ -23,7 +23,7 @@ Usage
 -----
 ```python
 >>> from doublemap import DoubleMap
->>> tracker = DoubleMap()
+>>> tracker = DoubleMap('iupui')
 >>>
 >>> # dict of buses. keys are bus ids.
 >>> tracker.buses
